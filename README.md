@@ -86,12 +86,9 @@ python app.py
 ```
 projeto/
 ├── app.py
-├── modelo_previsao_passageiros.pkl
 ├── fluxo_linhas_2023-2024.csv
-├── static/
-│   └── style.css
-├── templates/
-│   └── index.html
+├── style.css
+├── index.html
 ├── requirements.txt
 └── README.md
 ```
@@ -100,9 +97,8 @@ projeto/
 
 ## 📬 Contato
 
-Desenvolvido por **Seu Nome**  
-📧 seuemail@email.com  
-🔗 [Seu LinkedIn](https://www.linkedin.com)
+Desenvolvido por **Carlos Clementino**  
+🔗 [LinkedIn](https://www.linkedin.com/in/carlosclementino/)
 
 ---
 
