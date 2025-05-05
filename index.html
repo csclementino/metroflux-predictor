@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Previsão de Passageiros</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2>Prever Fluxo de Passageiros</h2>
+
+  <form id="formulario">
+    <label>Linha:</label>
+    <select id="linha" required>
+      <option value="1">Linha 1</option>
+      <option value="2">Linha 2</option>
+      <option value="3">Linha 3</option>
+      <option value="15">Linha 15</option>
+    </select><br><br>
+
+    <label>Mês:</label>
+    <select id="mes" required>
+      <option value="1">Janeiro</option>
+      <option value="2">Fevereiro</option>
+      <option value="3">Março</option>
+      <option value="4">Abril</option>
+      <option value="5">Maio</option>
+      <option value="6">Junho</option>
+      <option value="7">Julho</option>
+      <option value="8">Agosto</option>
+      <option value="9">Setembro</option>
+      <option value="10">Outubro</option>
+      <option value="11">Novembro</option>
+      <option value="12">Dezembro</option>
+    </select><br><br>
+
+    <label>Ano:</label>
+    <select id="ano" required>
+      <option value="2025">2025</option>
+    </select><br><br>
+
+    <button type="submit">Prever</button>
+  </form>
+
+  <h3 id="resultado"></h3>
+
+  <script>
+    document.getElementById('formulario').addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const linha = document.getElementById('linha').value;
+      const mes = document.getElementById('mes').value;
+      const ano = document.getElementById('ano').value;
+
+      const resposta = await fetch('http://localhost:5000/prever', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ linha, mes, ano })
+      });
+
+      const dados = await resposta.json();
+
+      if (resposta.ok) {
+        document.getElementById('resultado').innerText =
+          `📈 Previsão: ${dados.previsao_passageiros} passageiros para a linha ${dados.linha} em ${dados.mes}/${dados.ano}.`;
+      } else {
+        document.getElementById('resultado').innerText = 'Erro: ' + dados.erro;
+      }
+    });
+  </script>
+</body>
+</html>
