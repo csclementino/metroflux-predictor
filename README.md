@@ -53,7 +53,7 @@ A previsão de passageiros será exibida diretamente na tela.
 1. **Clone o repositório**:
 
 ```bash
-git clone https://github.com/seu-usuario/seu-repositorio.git](https://github.com/csclementino/metroflux-predictor.git
+git clone https://github.com/csclementino/metroflux-predictor.git
 ```
 
 2. **Instale as dependências**:
